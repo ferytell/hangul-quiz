@@ -2,16 +2,19 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import {
   consonants,
   vowels,
-  syllables,
+  //syllables,
   groupLabels,
   fonts,
   ALL_GROUPS,
 } from "./hangulData";
+import { generateSyllableData } from "./hangulGenerator";
 import "./App.css";
 
 function pickRandom(arr) {
   return arr[Math.floor(Math.random() * arr.length)];
 }
+
+const syllables = generateSyllableData(consonants, vowels);
 
 export default function App() {
   const [theme, setTheme] = useState(
@@ -46,7 +49,7 @@ export default function App() {
   const [showBreakdown, setShowBreakdown] = useState(false);
   const [enabledSylGroups, setEnabledSylGroups] = useState(() => {
     const s = localStorage.getItem("hq-sylGroups");
-    return s ? JSON.parse(s) : ["syllable-ga", "syllable-na", "syllable-da"];
+    return s ? JSON.parse(s) : ["cv-ㄱ", "cv-ㄴ", "cv-ㄷ"];
   });
 
   const inputRef = useRef(null);
@@ -438,32 +441,7 @@ export default function App() {
             <SelectorSection
               title="Syllable Blocks"
               korLabel="음절"
-              groups={[
-                "syllable-ga",
-                "syllable-na",
-                "syllable-da",
-                "syllable-ra",
-                "syllable-ma",
-                "syllable-ba",
-                "syllable-sa",
-                "syllable-a",
-                "syllable-ja",
-                "syllable-cha",
-                "syllable-ka",
-                "syllable-ta",
-                "syllable-pa",
-                "syllable-ha",
-                "syllable-geo",
-                "syllable-neo",
-                "syllable-deo",
-                "syllable-reo",
-                "syllable-meo",
-                "syllable-beo",
-                "syllable-seo",
-                "syllable-eo",
-                "syllable-jeo",
-                "words",
-              ]}
+              groups={consonants.map((c) => `cv-${c.char}`)}
               chars={syllables}
               enabled={enabledSylGroups}
               onToggle={(g) =>
