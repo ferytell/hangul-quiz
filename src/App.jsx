@@ -450,41 +450,30 @@ export default function App() {
                 )
               }
               onAll={(val) =>
-                setEnabledSylGroups(
-                  val
-                    ? [
-                        "syllable-ga",
-                        "syllable-na",
-                        "syllable-da",
-                        "syllable-ra",
-                        "syllable-ma",
-                        "syllable-ba",
-                        "syllable-sa",
-                        "syllable-a",
-                        "syllable-ja",
-                        "syllable-cha",
-                        "syllable-ka",
-                        "syllable-ta",
-                        "syllable-pa",
-                        "syllable-ha",
-                        "syllable-geo",
-                        "syllable-neo",
-                        "syllable-deo",
-                        "syllable-reo",
-                        "syllable-meo",
-                        "syllable-beo",
-                        "syllable-seo",
-                        "syllable-eo",
-                        "syllable-jeo",
-                        "words",
-                      ]
-                    : [],
-                )
+                setEnabledSylGroups(val ? ["cv-ㄱ", "cv-ㄴ", "cv-ㄷ"] : [])
               }
             />
           )}
         </div>
       </main>
+      <footer>
+        <p>
+          by ferytell{" "}
+          <a
+            href="https://www.linkedin.com/in/feri-ginanjar-ferytell/"
+            target="_blank"
+          >
+            Linkedin
+          </a>
+          .
+          <a
+            href="https://ferytell.github.io/react-portofolio/"
+            target="_blank"
+          >
+            GitHub
+          </a>
+        </p>
+      </footer>
     </div>
   );
 }
