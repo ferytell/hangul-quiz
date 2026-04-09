@@ -473,6 +473,13 @@ export default function App() {
             GitHub
           </a>
         </p>
+        <p></p>
+        <p>
+          also try{" "}
+          <a href="https://ferytell.github.io/kana-quiz/" target="_blank">
+            kana-quiz
+          </a>
+        </p>
       </footer>
     </div>
   );
